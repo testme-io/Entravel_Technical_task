@@ -11,7 +11,7 @@ const testData = [
     ["TC-INV-002", "Inventory: Price zero validation", "test_items_neg.py", "Try to add item with price: 0", "Cart exists", "/api/cart/:id/items", "POST", "400 Bad Request (BUG-001)", "Blocker", "api, negative"],
     ["TC-INV-003", "Inventory: Negative price", "test_items_neg.py", "Try to add item with price: -10.0", "Cart exists", "/api/cart/:id/items", "POST", "400 Bad Request", "Critical", "api, negative"],
     ["TC-INV-004", "Inventory: Fractional quantity", "test_items_neg.py", "Try to add quantity: 2.5", "Cart exists", "/api/cart/:id/items", "POST", "400 Bad Request (BUG-003)", "Major", "api, negative"],
-    ["TC-INV-005", "Inventory: Whitespace name", "test_items_neg.py", "Try name: '   '", "Cart exists", "/api/cart/:id/items", "POST", "400 Bad Request (BUG-002)", "", "api, negative"],
+    ["TC-INV-005", "Inventory: Whitespace name", "test_items_neg.py", "Try name: '   '", "Cart exists", "/api/cart/:id/items", "POST", "400 Bad Request (BUG-002)", "Major", "api, negative"],
     ["TC-INV-006", "Inventory: Null fields", "test_items_neg_extra_api.py", "Send null for name/price/qty", "Cart exists", "/api/cart/:id/items", "POST", "400 Bad Request", "Major", "api, negative"],
     ["TC-INV-007", "Inventory: Unicode & Emoji support", "test_items_extra_api.py", "Add item with name '☕ Coffee'", "Cart exists", "/api/cart/:id/items", "POST", "201 Created, name stored correctly", "Major", "api, positive"],
     ["TC-DISC-001", "Discount: SAVE10 calculation", "test_discount_api.py", "Apply SAVE10 and check floor rounding", "Cart has items", "/api/cart/:id/discount", "POST", "200 OK, total = subtotal * 0.9 (floor)", "Blocker", "api, smoke, positive, boundary"],
