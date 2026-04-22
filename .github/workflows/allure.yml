@@ -54,4 +54,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-history
-          destination_dir: allure-report
+          publish_branch: main
+          destination_dir: docs/allure-report
