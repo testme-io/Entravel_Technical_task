@@ -1,0 +1,2 @@
+
+[CALC] price=10.0 | qty=1 | total=10

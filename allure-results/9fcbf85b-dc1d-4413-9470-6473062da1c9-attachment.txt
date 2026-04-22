@@ -1,0 +1,5 @@
+2026-04-22 18:19:45,851 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:45,898 [INFO] POST http://localhost:3000/cart/0880c318-a2d3-4b7e-a8f4-757de52e4203/items | payload: {'name': 'Coffee', 'price': 10.0, 'quantity': 2} -> 201
+2026-04-22 18:19:45,948 [INFO] POST http://localhost:3000/cart/0880c318-a2d3-4b7e-a8f4-757de52e4203/items | payload: {'name': 'Tea', 'price': 5.0, 'quantity': 3} -> 201
+2026-04-22 18:19:45,995 [INFO] POST http://localhost:3000/cart/0880c318-a2d3-4b7e-a8f4-757de52e4203/items | payload: {'name': 'Juice', 'price': 7.0, 'quantity': 1} -> 201
+2026-04-22 18:19:46,000 [INFO] GET http://localhost:3000/cart/0880c318-a2d3-4b7e-a8f4-757de52e4203 -> 200

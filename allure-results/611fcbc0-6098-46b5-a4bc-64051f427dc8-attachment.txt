@@ -1,0 +1,4 @@
+2026-04-22 18:19:45,283 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:45,331 [INFO] POST http://localhost:3000/cart/c53950a9-66ff-40ab-a4cd-58b831b1e16f/items | payload: {'name': 'Low Price', 'price': 0.9, 'quantity': 1} -> 201
+2026-04-22 18:19:45,379 [INFO] POST http://localhost:3000/cart/c53950a9-66ff-40ab-a4cd-58b831b1e16f/discount | payload: {'code': 'SAVE10'} -> 200
+2026-04-22 18:19:45,386 [INFO] GET http://localhost:3000/cart/c53950a9-66ff-40ab-a4cd-58b831b1e16f -> 200

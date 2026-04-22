@@ -1,0 +1,2 @@
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart | payload: None -> 201
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart/ed1f980e-1251-4a5e-8b5f-236e10c3be8b/items | payload: {'name': "<script>alert('xss')</script>", 'price': 10, 'quantity': 1} -> 201

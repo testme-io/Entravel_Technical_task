@@ -1,0 +1,4 @@
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart | payload: None -> 201
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart/e0c4c137-ab39-427e-a02f-49ac43a3f900/items | payload: {'name': 'Test Item', 'price': 100.0, 'quantity': 1} -> 201
+[32mINFO    [0m api.client:client.py:30 DELETE http://localhost:3000/cart/e0c4c137-ab39-427e-a02f-49ac43a3f900/items/cafd26f7-89db-4bc4-a70e-22ea94b5ba0d -> 204
+[32mINFO    [0m api.client:client.py:30 DELETE http://localhost:3000/cart/e0c4c137-ab39-427e-a02f-49ac43a3f900/items/cafd26f7-89db-4bc4-a70e-22ea94b5ba0d -> 404

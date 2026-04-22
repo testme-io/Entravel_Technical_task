@@ -1,0 +1,2 @@
+
+[NEG] payload={'name': '   ', 'price': 10.0, 'quantity': 1} | status=201 | body={"id":"2aef991a-8c14-43c3-9648-5fa48a83a24c","name":"   ","price":10,"quantity":1}

@@ -1,0 +1,1 @@
+[32mINFO    [0m api.client:client.py:30 DELETE http://localhost:3000/cart/nonexistent-cart-00000/items/nonexistent-item-00000 -> 404

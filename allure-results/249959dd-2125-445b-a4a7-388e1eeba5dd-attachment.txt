@@ -1,0 +1,2 @@
+
+[CART GET] cart_id=ffb4f3a8-d6a0-447a-aeeb-56f52490b35a | items=[{'id': '4cdc5839-d5ab-430a-8bbd-dccab56a1beb', 'name': 'Coffee', 'price': 10, 'quantity': 2, 'subtotal': 20}] | total=20

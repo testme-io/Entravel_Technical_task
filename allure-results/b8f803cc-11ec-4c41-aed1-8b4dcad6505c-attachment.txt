@@ -1,0 +1,2 @@
+2026-04-22 18:19:44,184 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:44,188 [INFO] DELETE http://localhost:3000/cart/c73cd3f7-2ecd-494d-8acd-5c78df634f22/items/non-existent-123 -> 404

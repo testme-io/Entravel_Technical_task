@@ -1,0 +1,1 @@
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart/nonexistent-cart-00000/items | payload: {'name': 'Item', 'price': 10.0, 'quantity': 1} -> 404

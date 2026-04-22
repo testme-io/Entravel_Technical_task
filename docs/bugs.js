@@ -1,0 +1,20 @@
+const bugData = [
+    ["BUG-001", "Acceptance of zero price for items in /api/cart during POST request", "blocker", "TC-INV-002", "critical", "Open", "1. Create cart\n2. POST /api/cart/:id/items with price: 0\n3. Observe 201 Created instead of 400"],
+    ["BUG-002", "Validation failure for whitespace-only item names in /api/cart", "critical", "TC-INV-005", "critical", "Open", "1. POST /api/cart/:id/items with name: '   '\n2. Check if item is added to list"],
+    ["BUG-003", "Acceptance of fractional quantity values in /api/cart items", "major", "TC-INV-004", "major", "Open", "1. POST /api/cart/:id/items with quantity: 2.5\n2. Verify cart total calculation"],
+    ["BUG-004", "System crash (500 error) when sending non-JSON payload to /api/cart", "major", "TC-INV-020", "major", "Open", "1. Send POST request with Content-Type: text/plain\n2. Observe server response"],
+    ["BUG-005", "Partial discount application (first item only) on Cart UI", "blocker", "TC-UI-014", "critical", "Open", "1. Add 2+ items to cart\n2. Apply discount code\n3. Check if total reflects discount for all items"],
+    ["BUG-006", "Missing total recalculation after adding new items to a discounted cart", "blocker", "TC-DISC-003", "critical", "Open", "1. Apply discount\n2. Add another item\n3. Observe that total doesn't include discount for new item"],
+    ["BUG-007", "Incorrect rounding logic (floor failure) for HALF code in /api/cart/discount", "critical", "TC-DISC-001", "major", "Open", "1. Add item with price 15\n2. Apply HALF discount\n3. Expected: 7, Actual: 7.5 or 8"],
+    ["BUG-008", "Floating point precision error in total calculation on Cart UI", "major", "TC-DISC-001", "major", "Open", "1. Add items resulting in .81 cents\n2. Observe rounding artifacts in UI total"],
+    ["BUG-009", "Missing cart state validation for POST /discount requests", "major", "TC-DISC-001", "major", "Open", "1. Send /discount request without active session\n2. Observe server behavior"],
+    ["BUG-010", "Lack of string trimming for discount codes in /api/cart/discount", "minor", "TC-DISC-004", "minor", "Open", "1. Enter code ' SAVE10 '\n2. Observe 400 error instead of successful apply"],
+    ["BUG-011", "Cart data loss after page reload (F5) on Cart UI", "blocker", "TC-UI-005", "critical", "Open", "1. Add items to cart\n2. Reload page\n3. Observe empty cart"],
+    ["BUG-012", "Total amount update failure after applying promo code on Cart UI", "critical", "TC-UI-003", "critical", "Open", "1. Enter valid code\n2. Click Apply\n3. Observe success message but unchanged Total"],
+    ["BUG-013", "DOM element persistence for the last removed item on Cart UI", "major", "TC-UI-007", "major", "Open", "1. Remove all items one by one\n2. Observe that the last item row remains visible"],
+    ["BUG-014", "Missing validation error message for invalid promo codes on Cart UI", "minor", "TC-UI-006", "minor", "Open", "1. Enter 'INVALID'\n2. Click Apply\n3. Observe lack of feedback"],
+    ["BUG-015", "Non-functional HALF discount button in the UI Form", "blocker", "TC-UI-001", "critical", "Open", "1. Click HALF button\n2. Observe no action/request triggered"],
+    ["BUG-016", "SQL/NoSQL Injection vulnerability in /api/cart/:id parameter", "critical", "TC-SEC-001", "critical", "Open", "1. Send GET /api/cart/'%20OR%20'1'='1\n2. Check for unauthorized data leak"],
+    ["BUG-017", "Browser crash when rendering long strings (10k chars) in item names", "blocker", "TC-STRESS-002", "critical", "Open", "1. Add item with 10,000 char name\n2. Observe UI freeze/crash"],
+    ["BUG-018", "Data mismatch between API response and UI Total display", "critical", "TC-UI-004", "critical", "Open", "1. Compare API 'total' field with UI text\n2. Identify calculation discrepancy"]
+];

@@ -1,0 +1,1 @@
+[32mINFO    [0m api.client:client.py:30 DELETE http://localhost:3000/cart/eb2e8d6e' OR '1'='1/items/any-id -> 404

@@ -1,0 +1,2 @@
+
+[QTY > 1] price=3.0 | qty=5 | expected=15.0 | actual=15

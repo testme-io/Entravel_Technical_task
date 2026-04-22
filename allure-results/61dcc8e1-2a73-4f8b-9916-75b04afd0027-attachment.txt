@@ -1,0 +1,2 @@
+
+[STRUCTURE] item_body={'id': '3bc4f08b-164a-40dc-87e3-155af11c49f2', 'name': 'StructureTest', 'price': 15, 'quantity': 2}

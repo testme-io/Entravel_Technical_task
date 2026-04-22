@@ -1,0 +1,2 @@
+
+[DELETE + DISCOUNT] items=1 | total=18 | discount=2 | discountCode=SAVE10

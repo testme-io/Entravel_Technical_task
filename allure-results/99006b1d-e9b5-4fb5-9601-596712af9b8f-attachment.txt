@@ -1,0 +1,2 @@
+
+[CART GET EMPTY] cart_id=da94e327-333b-412d-8cc7-9d79724b243d | body={'items': [], 'subtotal': 0, 'discountCode': None, 'discount': 0, 'total': 0}

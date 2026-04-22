@@ -1,0 +1,1 @@
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart | payload: {'extra_field': 'garbage', 'admin': True} -> 201

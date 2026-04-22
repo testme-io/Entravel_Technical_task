@@ -1,0 +1,5 @@
+2026-04-22 18:19:44,910 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:44,958 [INFO] POST http://localhost:3000/cart/f70d2c67-ac95-4591-b56f-acb9d6cac068/items | payload: {'name': 'Item A', 'price': 10.0, 'quantity': 1} -> 201
+2026-04-22 18:19:45,008 [INFO] POST http://localhost:3000/cart/f70d2c67-ac95-4591-b56f-acb9d6cac068/discount | payload: {'code': 'SAVE10'} -> 200
+2026-04-22 18:19:45,061 [INFO] POST http://localhost:3000/cart/f70d2c67-ac95-4591-b56f-acb9d6cac068/items | payload: {'name': 'Item B', 'price': 10.0, 'quantity': 1} -> 201
+2026-04-22 18:19:45,071 [INFO] GET http://localhost:3000/cart/f70d2c67-ac95-4591-b56f-acb9d6cac068 -> 200

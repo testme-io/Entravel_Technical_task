@@ -1,0 +1,2 @@
+
+[NEG] url=http://localhost:3000/cart/12345 | status=404

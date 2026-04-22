@@ -1,0 +1,2 @@
+
+[MIN QTY] status=201 | body={"id":"66173ee7-06d5-485f-a5f5-add2107e4c50","name":"Snack","price":2,"quantity":1}

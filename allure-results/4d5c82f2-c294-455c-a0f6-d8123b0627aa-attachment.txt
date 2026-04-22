@@ -1,0 +1,4 @@
+2026-04-22 09:44:40,468 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 09:44:40,471 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 09:44:40,517 [INFO] POST http://localhost:3000/cart/9b43189a-8b17-4497-ab46-16ea0afea39a/items | payload: {'name': 'Item A', 'price': 5.0, 'quantity': 1} -> 201
+2026-04-22 09:44:40,523 [INFO] GET http://localhost:3000/cart/302374de-7383-4ccf-b9c1-234faf4b832b -> 200

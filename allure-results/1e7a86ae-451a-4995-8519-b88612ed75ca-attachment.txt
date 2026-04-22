@@ -1,0 +1,2 @@
+
+[NEG] payload={'name': 'Item', 'price': 10.0} | status=400 | body={"error":"Invalid quantity"}

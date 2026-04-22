@@ -1,0 +1,1 @@
+2026-04-22 18:19:43,411 [INFO] GET http://localhost:3000/cart/nonexistent-cart-id-00000 -> 404

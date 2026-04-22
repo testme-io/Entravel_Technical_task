@@ -1,0 +1,4 @@
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart | payload: None -> 201
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart | payload: None -> 201
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart/55c97067-a9a3-4b7b-8260-8d3d52412ddc/items | payload: {'name': 'Item A', 'price': 5.0, 'quantity': 1} -> 201
+[32mINFO    [0m api.client:client.py:20 GET http://localhost:3000/cart/b37b3292-955b-486c-ada7-3ff424b7c61e -> 200

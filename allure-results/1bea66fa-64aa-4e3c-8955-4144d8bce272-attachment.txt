@@ -1,0 +1,2 @@
+
+[MIN PRICE] status=201 | body={"id":"bb7fcd2d-7de5-4fcd-ad0e-b98ea3418168","name":"Candy","price":1,"quantity":1}

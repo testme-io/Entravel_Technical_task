@@ -1,0 +1,2 @@
+
+[MULTI ITEMS] items=3 | expected_total=42.0 | actual_total=42

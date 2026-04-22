@@ -1,0 +1,20 @@
+const bugData = [
+    ["BUG-001", "API accepts item with price=0", "blocker", "TC-INV-002", "critical", "Open", "curl -X POST /api/cart/123/items -d '{\"price\":0}'"],
+    ["BUG-002", "Whitespace-only names allowed", "critical", "TC-INV-013", "critical", "Open", "curl -X POST /api/cart/123/items -d '{\"name\":\"   \"}'"],
+    ["BUG-003", "Fractional quantity accepted (2.5)", "major", "TC-INV-011", "major", "Open", "curl -X POST /api/cart/123/items -d '{\"quantity\":2.5}'"],
+    ["BUG-004", "Non-JSON payload causes 500/Crash", "major", "TC-INV-020", "major", "Open", "curl -X POST /api/cart/123/items -H 'Content-Type: text/plain'"],
+    ["BUG-005", "Discount applies to first item only", "blocker", "TC-UI-014", "critical", "Open", "N/A"],
+    ["BUG-006", "No recalculation when new item added", "blocker", "TC-DISC-003", "critical", "Open", "curl -X POST /api/cart/123/items -d '{\"name\":\"Item2\"}'"],
+    ["BUG-007", "Math.floor failure (Rounding issues)", "critical", "TC-DISC-001", "major", "Open", "curl -X POST /api/cart/123/discount -d '{\"code\":\"HALF\"}'"],
+    ["BUG-008", "Floating point precision error (0.81)", "major", "TC-DISC-001", "major", "Open", "N/A"],
+    ["BUG-009", "POST /discount missing cart state", "major", "TC-DISC-001", "major", "Open", "curl -X POST /api/cart/123/discount"],
+    ["BUG-010", "Discount code with spaces not trimmed", "minor", "TC-DISC-004", "minor", "Open", "curl -X POST /api/cart/123/discount -d '{\"code\":\" SAVE10 \"}'"],
+    ["BUG-011", "Persistence: Cart cleared on reload", "blocker", "TC-UI-005", "critical", "Open", "N/A"],
+    ["BUG-012", "UI: Promo code does not update Total", "critical", "TC-UI-003", "critical", "Open", "N/A"],
+    ["BUG-013", "UI: Last item remains in DOM after removal", "major", "TC-UI-007", "major", "Open", "N/A"],
+    ["BUG-014", "UI: Error message missing for invalid code", "minor", "TC-UI-006", "minor", "Open", "N/A"],
+    ["BUG-015", "UI: HALF discount button not functional", "blocker", "TC-UI-001", "critical", "Open", "N/A"],
+    ["BUG-016", "SQL/NoSQL Injection in Cart ID", "critical", "TC-SEC-001", "critical", "Open", "curl -X GET /api/cart/'%20OR%20'1'='1"],
+    ["BUG-017", "System Crash on JavaScript Dialogs", "blocker", "TC-STRESS-002", "critical", "Open", "N/A"],
+    ["BUG-018", "API vs UI Total Mismatch (Sync)", "critical", "TC-UI-004", "critical", "Open", "N/A"]
+];

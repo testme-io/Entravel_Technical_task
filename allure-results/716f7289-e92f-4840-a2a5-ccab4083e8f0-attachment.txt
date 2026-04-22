@@ -1,0 +1,1 @@
+[32mINFO    [0m api.client:client.py:20 GET http://localhost:3000/health -> 200

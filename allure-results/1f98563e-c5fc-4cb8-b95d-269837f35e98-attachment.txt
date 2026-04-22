@@ -1,0 +1,2 @@
+
+[ADD ITEM] status=201 | body={"id":"279b12c2-68c3-4404-abc6-d054bcfceb37","name":"Coffee","price":10,"quantity":1}

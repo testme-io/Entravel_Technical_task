@@ -1,0 +1,4 @@
+
+[FLOAT PRICE] status=201 | body={"id":"ab99650f-1473-449b-9dcc-6977bc12493d","name":"Latte","price":9.99,"quantity":1}
+
+[FLOAT PRICE] total=9.99

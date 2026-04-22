@@ -1,0 +1,4 @@
+2026-04-22 18:19:46,651 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:46,698 [INFO] POST http://localhost:3000/cart/bf7e92fa-a561-4f47-a68d-c889b50b1c25/items | payload: {'name': 'Duplicate', 'price': 10.0, 'quantity': 1} -> 201
+2026-04-22 18:19:46,751 [INFO] POST http://localhost:3000/cart/bf7e92fa-a561-4f47-a68d-c889b50b1c25/items | payload: {'name': 'Duplicate', 'price': 10.0, 'quantity': 1} -> 201
+2026-04-22 18:19:46,759 [INFO] GET http://localhost:3000/cart/bf7e92fa-a561-4f47-a68d-c889b50b1c25 -> 200

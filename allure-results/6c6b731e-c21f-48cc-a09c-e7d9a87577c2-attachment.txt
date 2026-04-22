@@ -1,0 +1,2 @@
+
+[DELETE] cart=db6d11be-c4e5-40f5-b4e4-6c3f632cf028 | item=54ba6f92-57b9-4f32-b953-d689e995cfa1 | status=204

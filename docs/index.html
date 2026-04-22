@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QA Dashboard | EnTravel</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --container-bg: #242424;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --accent: #3498db;
+            --border: #333;
+            --gate-ready: #1b5e20;
+            --gate-blocked: #2a2a2a;
+            --emergency: #ff4d4d;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); color: var(--text-main); padding: 20px; margin: 0; }
+        .container { max-width: 1650px; margin: auto; background: var(--container-bg); padding: 30px; border-radius: 12px; }
+        .release-gate {
+            padding: 25px; border-radius: 8px; margin-bottom: 30px;
+            text-align: center; font-size: 1.5em; font-weight: bold;
+            border: 1px solid #444; transition: 0.3s;
+        }
+        .status-ready { background: var(--gate-ready); color: #a5d6a7; border-color: #2e7d32; }
+        .status-blocked {
+            background: var(--gate-blocked);
+            color: #cccccc;
+            border-left: 5px solid #b71c1c;
+        }
+        .status-emergency { color: var(--emergency); }
+        details { background: #2d2d2d; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 30px; }
+        summary { padding: 15px; cursor: pointer; font-weight: bold; color: var(--accent); outline: none; }
+        .policy-content { padding: 0 15px 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; font-size: 0.9em; }
+        .tier h4 { margin: 5px 0; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+        .tier ul { padding-left: 20px; color: var(--text-dim); }
+        .dataTables_wrapper .dataTables_length select,
+        .dataTables_wrapper .dataTables_filter input {
+            background-color: #333 !important; border: 1px solid var(--border) !important; color: #fff !important; padding: 5px; border-radius: 4px;
+        }
+        h1 { color: #fff; margin-bottom: 5px; }
+        .subtitle { color: var(--text-dim); margin-bottom: 30px; font-size: 1.1em; }
+        h2 { color: #fff; border-left: 4px solid var(--accent); padding-left: 15px; margin-top: 40px; margin-bottom: 20px; }
+        table.dataTable { border-color: var(--border) !important; }
+        table.dataTable thead th { background: #1a1a1a; color: var(--accent); border-bottom: 1px solid var(--border) !important; }
+        .badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #cccccc;
+            text-transform: uppercase;
+            display: inline-block;
+            background: #2d2d2d;
+            border: 1px solid #444;
+            line-height: 1.4;
+        }
+        .blocker, .critical { border-left: 3px solid #b71c1c; }
+        .major { border-left: 3px solid #f1c40f; }
+        .minor { border-left: 3px solid #3498db; }
+        .tag { background: #333; color: var(--text-dim); margin: 2px; border: 1px solid #444; font-size: 10px; text-transform: none; }
+        code {
+            background: transparent;
+            color: var(--text-dim);
+            padding: 0;
+            font-size: 0.9em;
+            white-space: normal;
+            word-break: break-all;
+            font-family: 'Consolas', monospace;
+        }
+        .tc-link { color: var(--accent); cursor: pointer; text-decoration: underline; }
+        div.dt-button-collection {
+            background-color: var(--container-bg) !important;
+            border: 1px solid var(--border) !important;
+            padding: 10px !important;
+        }
+        button.dt-button {
+            background: #333 !important;
+            color: var(--text-main) !important;
+            border: 1px solid var(--border) !important;
+            transition: 0.2s;
+            margin-bottom: 2px !important;
+        }
+        button.dt-button:hover:not(.disabled) {
+            background: #444 !important;
+            border-color: var(--accent) !important;
+            color: #fff !important;
+        }
+        button.dt-button.active {
+            background: var(--accent) !important;
+            color: #fff !important;
+            box-shadow: none !important;
+            border-color: var(--accent) !important;
+        }
+        button.dt-button span {
+            color: inherit !important;
+        }
+
+
+        #bugTable td {
+            white-space: pre-line !important;
+            vertical-align: top !important;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Test Report EnTravel Website: CART Functionality</h1>
+    <div class="subtitle">Release Quality Dashboard</div>
+
+    <div id="releaseGate" class="release-gate"></div>
+
+    <details>
+        <summary>View Quality Gates & Tier Policy</summary>
+        <div class="policy-content">
+            <div class="tier">
+                <h4>Tier 1: Smoke & Critical Path</h4>
+                <ul>
+                    <li>100% Pass Rate required</li>
+                    <li>Zero Blocker/Critical bugs allowed</li>
+                </ul>
+            </div>
+            <div class="tier">
+                <h4>Tier 2: Major Functionality</h4>
+                <ul>
+                    <li>>95% Pass Rate required</li>
+                    <li>Major bugs allowed only with Workaround</li>
+                </ul>
+            </div>
+            <div class="tier">
+                <h4>Tier 3: UI & Edge Cases</h4>
+                <ul>
+                    <li>Minor UI glitches allowed</li>
+                </ul>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary>View Testing Assumptions</summary>
+        <div class="policy-content">
+            <div class="tier">
+                <h4>Data Integrity & Validation</h4>
+                <ul>
+                    <li>Price Logic: Zero or negative prices are treated as critical business errors (TC-INV-002).</li>
+                    <li>ID Format: Cart IDs are expected to be unique strings; numeric-only IDs are invalid (TC-CART-005).</li>
+                    <li>Sanitization: System should trim whitespaces while supporting Unicode/Emojis (TC-INV-007).</li>
+                </ul>
+            </div>
+            <div class="tier">
+                <h4>Business Logic & Discounts</h4>
+                <ul>
+                    <li>Rounding: Total amounts are rounded down (floor) in favor of the customer (TC-DISC-001).</li>
+                    <li>Persistence: Active discounts must persist and recalculate when new items are added (TC-DISC-003).</li>
+                    <li>Empty States: Applying promo codes to an empty cart is considered a validation error.</li>
+                </ul>
+            </div>
+            <div class="tier">
+                <h4>Technical Constraints</h4>
+                <ul>
+                    <li>UI Sync: Frontend values must strictly match API responses (TC-UI-004).</li>
+                    <li>Load Limits: API is assumed to handle up to 200 sequential item additions (TC-STRESS-001).</li>
+                    <li>State: Cart data must persist across page reloads (F5), currently tracked as BUG-011.</li>
+                </ul>
+            </div>
+        </div>
+    </details>
+
+    <h2>Active Defect Log</h2>
+    <table id="bugTable" class="display" style="width:100%"></table>
+
+    <h2>Test Case Inventory</h2>
+    <table id="testTable" class="display" style="width:100%"></table>
+</div>
+
+<script src="bugs.js"></script>
+<script src="test_cases.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    const priorityBadge = (d) => `<span class="badge ${d ? d.toLowerCase() : ''}">${d || ''}</span>`;
+    const labelBadge = (d) => d ? d.split(',').map(tag => `<span class="badge tag">${tag.trim()}</span>`).join('') : '';
+
+    const criticalBugs = bugData.filter(b => {
+        const s = b[2] ? b[2].toLowerCase() : '';
+        return s === 'blocker' || s === 'critical';
+    }).length;
+
+    const gate = $('#releaseGate');
+    if (criticalBugs > 0) {
+        gate.addClass('status-blocked');
+        gate.html(`<span class="status-emergency">RELEASE BLOCKED:</span> ${criticalBugs} Critical/Blocker bugs found`);
+    } else {
+        gate.addClass('status-ready').text(`RELEASE READY: All Quality Gates Passed`);
+    }
+
+    $('#bugTable').DataTable({
+        data: bugData,
+        paging: false,
+        searching: false,
+        info: false,
+        dom: 'Bfrtip', // Добавляем возможность вывода кнопок
+        buttons: [{ extend: 'colvis', text: 'Select Columns' }],
+        columns: [
+            { title: "ID", data: 0, render: d => `<span style="color:#ff4d4d; font-weight:bold">${d}</span>` },
+            { title: "Summary", data: 1 },
+            { title: "Reproduction Steps", data: 6, visible: false },
+            { title: "Severity", data: 2, render: priorityBadge },
+            { title: "Test Case", data: 3, render: d => d ? d.split(',').map(id => `<span class="tc-link">${id.trim()}</span>`).join(', ') : 'N/A' },
+            { title: "Priority", data: 4, render: priorityBadge },
+            { title: "Status", data: 5 },
+            {
+                title: "Type / Replay",
+                data: 6,
+                render: function(d) {
+                    if (d === 'N/A' || !d || !d.includes('curl')) {
+                        return `<span class="badge" style="border-left:3px solid #7f8c8d">UI</span> <span style="color:var(--text-dim); font-style:italic; margin-left:8px">Manual check</span>`;
+                    }
+                    return `<span class="badge" style="border-left:3px solid var(--accent)">API</span> <code style="margin-left:8px">${d}</code>`;
+                }
+            }
+        ]
+    });
+
+    let t = $('#testTable').DataTable({
+        data: testData,
+        pageLength: 25,
+        dom: 'Bfrtip',
+        buttons: [{ extend: 'colvis', text: 'Select Columns' }],
+        columns: [
+            { title: "#", data: null, defaultContent: "" },
+            {
+                title: "Case ID",
+                data: 0,
+                render: (d, type) => type === 'display' ? `<span style="color:var(--accent); font-weight:400">${d}</span>` : d
+            },
+            { title: "Summary", data: 1 },
+            { title: "Description", data: 3, visible: false },
+            { title: "Preconditions", data: 4, visible: false },
+            { title: "Expected Result", data: 7, visible: false },
+            {
+                title: "Method",
+                data: 6,
+                render: d => `<code style="color: var(--text-main); font-weight: bold;">${d}</code>`
+            },
+            { title: "Endpoint", data: 5, render: d => d === 'N/A' ? d : `<code>${d}</code>` },
+            { title: "Priority", data: 8, render: priorityBadge },
+            { title: "Labels", data: 9, render: labelBadge }
+        ],
+        order: [[1, 'asc']]
+    });
+
+    t.on('draw.dt', function () {
+        let info = t.page.info();
+        t.column(0, { page: 'current' }).nodes().each((cell, i) => {
+            cell.innerHTML = i + 1 + info.start;
+        });
+    });
+
+    $('#bugTable').on('click', '.tc-link', function() {
+        const tcId = $(this).text().trim();
+        t.search(tcId).draw();
+        $('html, body').animate({ scrollTop: $("#testTable").offset().top - 50 }, 600);
+    });
+});
+</script>
+</body>
+</html>

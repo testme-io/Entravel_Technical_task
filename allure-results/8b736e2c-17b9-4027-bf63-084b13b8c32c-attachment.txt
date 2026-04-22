@@ -1,0 +1,2 @@
+[32mINFO    [0m api.client:client.py:25 POST http://localhost:3000/cart | payload: None -> 201
+[32mINFO    [0m api.client:client.py:30 DELETE http://localhost:3000/cart/c73cd3f7-2ecd-494d-8acd-5c78df634f22/items/non-existent-123 -> 404

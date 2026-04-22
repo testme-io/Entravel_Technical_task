@@ -1,0 +1,5 @@
+2026-04-22 09:44:40,817 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 09:44:40,862 [INFO] POST http://localhost:3000/cart/e8bb07b9-10c1-43a7-b89c-d5544d54322f/items | payload: {'name': 'Item A', 'price': 10.0, 'quantity': 1} -> 201
+2026-04-22 09:44:40,907 [INFO] POST http://localhost:3000/cart/e8bb07b9-10c1-43a7-b89c-d5544d54322f/items | payload: {'name': 'Item B', 'price': 20.0, 'quantity': 1} -> 201
+2026-04-22 09:44:40,909 [INFO] DELETE http://localhost:3000/cart/e8bb07b9-10c1-43a7-b89c-d5544d54322f/items/40ce12b7-5854-4f90-a664-3a0cd396a82d -> 204
+2026-04-22 09:44:40,910 [INFO] GET http://localhost:3000/cart/e8bb07b9-10c1-43a7-b89c-d5544d54322f -> 200

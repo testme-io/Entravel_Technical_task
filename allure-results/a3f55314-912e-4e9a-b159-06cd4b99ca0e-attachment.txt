@@ -1,0 +1,2 @@
+
+[DELETE 404] status=404 | body={"error":"Item not found"}

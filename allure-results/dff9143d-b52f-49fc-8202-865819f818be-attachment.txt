@@ -1,0 +1,2 @@
+
+[CART CREATE] status=201 | body={"cartId":"5133e06d-5e63-497a-a5dd-f93647f1ac15"}

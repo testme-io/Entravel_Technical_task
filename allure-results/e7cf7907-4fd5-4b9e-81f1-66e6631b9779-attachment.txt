@@ -1,0 +1,2 @@
+
+[CALC AFTER DELETE] expected=30.0 | actual=30

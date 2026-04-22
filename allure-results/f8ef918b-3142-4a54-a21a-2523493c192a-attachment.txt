@@ -1,0 +1,4 @@
+2026-04-22 18:19:44,110 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:44,113 [INFO] POST http://localhost:3000/cart | payload: None -> 201
+2026-04-22 18:19:44,158 [INFO] POST http://localhost:3000/cart/42915950-7522-497e-8131-ae3348430eec/items | payload: {'name': 'B', 'price': 5.0, 'quantity': 1} -> 201
+2026-04-22 18:19:44,161 [INFO] DELETE http://localhost:3000/cart/b1022817-06d9-41fd-a1fd-85bd6a8d1d3c/items/7da25569-304c-488e-ad67-0fbfe905bd6d -> 404

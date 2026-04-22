@@ -1,0 +1,1 @@
+2026-04-22 18:19:49,815 [INFO] DELETE http://localhost:3000/cart/eb2e8d6e' OR '1'='1/items/any-id -> 404

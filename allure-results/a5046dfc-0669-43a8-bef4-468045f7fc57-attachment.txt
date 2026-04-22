@@ -1,0 +1,2 @@
+
+[ITEM STRUCTURE] body={'id': '6d7d7107-1878-4e35-8158-d6df8e716057', 'name': 'Burger', 'price': 8, 'quantity': 2}
