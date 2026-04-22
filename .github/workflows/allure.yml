@@ -37,7 +37,7 @@ jobs:
         continue-on-error: true
         with:
           ref: gh-pages
-          path: allure-history
+          path: gh-pages
 
       - name: Allure Report action
         uses: simple-elf/allure-report-action@master
@@ -47,16 +47,18 @@ jobs:
           allure_history: allure-history
           keep_reports: 20
 
-      - name: Copy custom dashboard
+      - name: Prepare combined deployment
         if: always()
         run: |
-          cp docs/index.html allure-history/index_custom.html
-          cp docs/test_cases.js allure-history/test_cases.js
+          mkdir -p deploy/report
+          cp -r allure-history/* deploy/report/
+          cp docs/index.html deploy/index.html
+          cp docs/test_cases.js deploy/test_cases.js
 
-      - name: Deploy report to Github Pages
+      - name: Deploy to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-history
+          publish_dir: deploy
           publish_branch: gh-pages
