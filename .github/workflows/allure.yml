@@ -31,13 +31,13 @@ jobs:
           pytest --alluredir=allure-results
         continue-on-error: true
 
-#      - name: Get Allure history
-#        uses: actions/checkout@v4
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: Allure Report action
         uses: simple-elf/allure-report-action@master
@@ -46,6 +46,7 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 20
+          report_url: https://testme-io.github.io/Entravel_Technical_task/allure-report/
 
       - name: Deploy report to Github Pages
         if: always()
@@ -53,3 +54,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-history
+          destination_dir: allure-report
