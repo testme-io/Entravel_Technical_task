@@ -46,7 +46,12 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 20
-          report_url: https://testme-io.github.io/Entravel_Technical_task/allure-report/
+
+      - name: Copy custom dashboard to report directory
+        if: always()
+        run: |
+          cp docs/index.html allure-history/index_custom.html
+          cp docs/test_cases.js allure-history/test_cases.js
 
       - name: Deploy report to Github Pages
         if: always()
@@ -54,5 +59,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-history
-          publish_branch: main
-          destination_dir: docs/allure-report
+          publish_branch: gh-pages
