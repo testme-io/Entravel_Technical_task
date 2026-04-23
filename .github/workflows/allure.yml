@@ -39,7 +39,7 @@ jobs:
           ref: gh-pages
           path: allure-history
 
-      - name: Allure Report action
+      - name: Generate Allure Report
         uses: simple-elf/allure-report-action@master
         if: always()
         with:
@@ -51,12 +51,12 @@ jobs:
         if: always()
         run: |
           mkdir -p deploy/report
-          # Копируем твой кастомный дашборд в корень
           cp docs/index.html deploy/index.html
           cp docs/test_cases.js deploy/test_cases.js
-          # Берем файлы из последнего созданного отчета (самая большая цифра в папке) и кладем в /report/
-          LATEST_DIR=$(ls -d allure-history/*/ | sort -V | tail -n 1)
-          cp -r $LATEST_DIR* deploy/report/
+          LATEST_REPORT=$(ls -td allure-history/*/ | head -1)
+          cp -r ${LATEST_REPORT}* deploy/report/
+          rm -f deploy/report/index.html
+          cp ${LATEST_REPORT}index.html deploy/report/index.html
 
       - name: Deploy to Github Pages
         if: always()
