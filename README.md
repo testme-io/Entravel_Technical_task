@@ -8,7 +8,7 @@ Strategic quality overview of the shopping cart module. This project demonstrate
 
 ### 📊 Executive Summary
 - **Test Coverage:** 32 Scenarios (Core API, UI/UX, Edge Cases, Security).
-- **Defect Discovery:** 18 Bugs (6 Blocker/Critical).
+- **Defect Discovery:** 18 Bugs (11 Blocker/Critical).
 - **Current Release Status:** ⛔ **BLOCKED**
   *The release is halted due to critical vulnerabilities in the discount engine and potential data loss during session reloads.*
 
