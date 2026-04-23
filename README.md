@@ -2,9 +2,7 @@
 
 Strategic quality overview of the shopping cart module. This project demonstrates a risk-oriented approach to API & UI testing, ensuring business logic stability and data integrity.
 
-### 🔗 Quick Access
-* [🌐 **ACCESS LIVE DASHBOARD**](https://testme-io.github.io/Entravel_Technical_task/) — *Executive summary & defect tracking*
-* [📊 **VIEW DETAILED ALLURE REPORT**](https://testme-io.github.io/Entravel_Technical_task/report/) — *Technical test execution & CI/CD logs*
+[🌐 **ACCESS LIVE DASHBOARD**](https://testme-io.github.io/Entravel_Technical_task/)
 
 ---
 
