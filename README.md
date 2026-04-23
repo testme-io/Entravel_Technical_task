@@ -1,8 +1,10 @@
-# 🛒 EnTravel Cart Functionality: QA Assessment & Dashboard
+# 🛒 EnTravel Cart Functionality: QA Assessment & Reporting
 
 Strategic quality overview of the shopping cart module. This project demonstrates a risk-oriented approach to API & UI testing, ensuring business logic stability and data integrity.
 
-[🌐 **ACCESS LIVE DASHBOARD**](https://testme-io.github.io/Entravel_Technical_task/)
+### 🔗 Quick Access
+* [🌐 **ACCESS LIVE DASHBOARD**](https://testme-io.github.io/Entravel_Technical_task/) — *Executive summary & defect tracking*
+* [📊 **VIEW DETAILED ALLURE REPORT**](https://testme-io.github.io/Entravel_Technical_task/report/) — *Technical test execution & CI/CD logs*
 
 ---
 
@@ -15,10 +17,11 @@ Strategic quality overview of the shopping cart module. This project demonstrate
 ---
 
 ### 💡 Engineering Highlights
+* **Automated CI/CD Pipeline:** Fully integrated with GitHub Actions. Every push triggers a fresh test run with instant Allure Report generation.
 * **Dynamic Quality Gate:** Real-time alert system. The dashboard automatically flags the release status based on defect severity.
 * **Traceability:** Seamless navigation between discovered bugs and their corresponding test specifications.
 * **Clean Data Visualization:** Technical details (Reproduction Steps, API Payloads) are tucked away to keep the focus on high-level metrics, accessible via **"Select Columns"**.
-* **Tech Stack:** Modern frontend stack (JS/jQuery, DataTables) with a custom Dark Mode for high readability.
+* **Tech Stack:** Pytest, Playwright, Allure. Custom frontend (JS/jQuery, DataTables) for the executive dashboard.
 
 ---
 
